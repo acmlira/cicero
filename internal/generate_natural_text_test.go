@@ -4,6 +4,9 @@ import (
 	"strings"
 	"testing"
 	"unicode"
+
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
 )
 
 func TestGenerateNaturalText(t *testing.T) {
@@ -42,10 +45,15 @@ func TestGenerateNaturalText(t *testing.T) {
 	}
 
 	for _, word := range words {
-		if !strings.Contains(result, word) && !strings.Contains(result, strings.Title(word)) {
+		if !strings.Contains(result, word) && !strings.Contains(result, Title(word)) {
 			t.Errorf("Esperado que o texto contivesse a palavra: %s", word)
 		}
 	}
 
 	t.Logf("Texto gerado: %s", result)
+}
+
+func Title(word string) string {
+	caser := cases.Title(language.English)
+	return caser.String(word)
 }

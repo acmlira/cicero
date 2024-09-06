@@ -3,7 +3,13 @@ package internal
 import (
 	"math/rand"
 	"strings"
+
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
 )
+
+const commaWeight = 0.2
+const dotWeight = 0.05
 
 func GenerateNaturalText(words []string) string {
 	if len(words) == 0 {
@@ -16,8 +22,8 @@ func GenerateNaturalText(words []string) string {
 
 	for i, word := range words {
 		if capitalizeNext {
-			// TODO refactor this next line
-			word = strings.Title(word)
+			caser := cases.Title(language.English)
+			word = caser.String(word)
 			capitalizeNext = false
 		}
 
@@ -25,10 +31,10 @@ func GenerateNaturalText(words []string) string {
 
 		if i != len(words)-1 {
 			r := rand.Float32()
-			if r < 0.05 {
+			if r < dotWeight {
 				result.WriteString(".")
 				capitalizeNext = true
-			} else if r < 0.2 {
+			} else if r < commaWeight {
 				result.WriteString(",")
 			}
 

@@ -39,11 +39,11 @@ func GetInternal() Internal {
 	return internalInstance
 }
 
-func (i *internalImpl) ReservoirSampling(words []string, count int) []string {
+func (*internalImpl) ReservoirSampling(words []string, count int) []string {
 	return internal.ReservoirSampling(words, count)
 }
 
-func (i *internalImpl) JoinStrings(words []string, separator string) string {
+func (*internalImpl) JoinStrings(words []string, separator string) string {
 	return internal.JoinStrings(words, separator)
 }
 
@@ -51,10 +51,10 @@ func (i *internalImpl) GetWords() []string {
 	return i.Words
 }
 
-func (i *internalImpl) GetRandomElement(words []string) string {
+func (*internalImpl) GetRandomElement(words []string) string {
 	return internal.GetRandomElement(words)
 }
 
-func (i *internalImpl) GenerateNaturalText(words []string) string {
+func (*internalImpl) GenerateNaturalText(words []string) string {
 	return internal.GenerateNaturalText(words)
 }
