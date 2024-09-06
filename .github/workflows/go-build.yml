@@ -25,4 +25,4 @@ jobs:
       run: go test -v ./...
 
     - name: Coverage
-      run: go test -coverprofile=coverage.out %*|grep -v -e "^\.\.*$"|grep -v "^$"|grep -v "thus far"
+      run: go test -v ./... covermode=atomic -coverprofile=coverage.out
