@@ -1,7 +1,7 @@
 package cicero
 
 import (
-	"cicero/internal/bridge"
+	"github.com/acmlira/cicero/internal/bridge"
 )
 
 const (

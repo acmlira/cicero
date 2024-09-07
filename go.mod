@@ -1,4 +1,4 @@
-module cicero
+module github.com/acmlira/cicero
 
 go 1.22
 

@@ -1,9 +1,10 @@
 package bridge
 
 import (
-	"cicero/internal"
 	"fmt"
 	"sync"
+
+	"github.com/acmlira/cicero/internal"
 )
 
 type Internal interface {
